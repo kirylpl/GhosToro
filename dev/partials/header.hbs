@@ -3,10 +3,11 @@
 		<a class="image-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} Logo" /></a>
 	{{else}}
 	    <a class="logo" href="/">
-	        GhosToro<span>ghost theme</span>
+					{{@blog.description}}
+					<span>blog by kiryl ply </span>
 	    </a>
     {{/if}}
     {{^is 'home'}}
-    	{{> menu}}
+    	{{navigation}}
     {{/is}}
 </header>

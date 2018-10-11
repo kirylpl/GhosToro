@@ -149,7 +149,7 @@ module.exports = function (grunt) {
       main: {
         files: [{
           expand: true,
-          src: ['<%= toro.devimg %>/**/*.png', '**/*.hbs'],
+          src: ['<%= toro.devimg %>/**/*.png', 'assets/*.svg','**/*.svg','**/*.eot','**/*.ttf','**/*.woff', '**/*.css', '**/*.hbs'],
           dest: '<%= toro.dist %>',
           filter: 'isFile'
         }]
@@ -214,7 +214,8 @@ module.exports = function (grunt) {
     'autoprefixer',
     'lesslint',
     'copy:main',
-    //'handlebarsmin', Currently disabled because it cause error with new Ghost version 0.5.2.
+    // 'handlebarsmin'
+    // Currently disabled because it cause error with new Ghost version 0.5.2.
     'watch'
 	]);
 
@@ -227,7 +228,8 @@ module.exports = function (grunt) {
     'autoprefixer',
     'lesslint',
     'copy',
-    //'handlebarsmin', Currently disabled because it cause error with new Ghost version 0.5.2.
+    // 'handlebarsmin'
+    //Currently disabled because it cause error with new Ghost version 0.5.2.
     'compress',
   ]);
 

@@ -5,3 +5,4 @@ dev/.tmp
 /partials/*.hbs
 /dist
 /GhosToro.zip
+.DS_Store

@@ -315,6 +315,7 @@
     QS.prototype.events = [];
 
     QS.prototype.loop = function() {
+        // this.ctx.clearRect(0,0,this.ctx.canvas.width, this.ctx.canvas.height)
         this.draw();
         this.ctx.render(this.stage);
         root.requestAnimFrame(this.loop.bind(this));
@@ -452,7 +453,7 @@ Dot.prototype = {
         }
 
         color = this.trail === "trail" ? "red" : "grey";
-        this.g = PIXI.Sprite.fromImage("/assets/images/" + shape + "-" + color + ".png");
+        this.g = PIXI.Sprite.fromImage("/assets/images/" + shape + "-" + color + ".svg");
         this._parent.stage.addChild(this.g);
     },
 
@@ -467,7 +468,7 @@ Dot.prototype = {
 
     update: function() {
 
-        this.life -= 1 / 500;
+        this.life -= 1 / 350;
         this.lifeSpent++;
         this.startScale += 0.05;
 
@@ -635,10 +636,12 @@ DotInfo.BG = QS.extend({
 
     setup: function(args) {
         // create a renderer instance
+        // this.stage = new PIXI.Stage("0x" + this.background);
         this.stage = new PIXI.Container();
+
         // set the context and container
         this.ctx = PIXI.autoDetectRenderer(this.size[0], this.size[1], null, true, {
-            backgroundColor: "0x" + this.background
+            backgroundColor: '"0x" + this.background'
         });
         document.body.appendChild(this.ctx.view);
         // finally query the various pixel ratios
